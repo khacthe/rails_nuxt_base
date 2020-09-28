@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") {5} %>
+  host: <%= ENV["DATABASE_HOSTNAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  port: <%= ENV.fetch("DATABASE_PORT") {3306} %>
+
+development:
+  <<: *default
+  database: rizakuru_development
+
+test:
+  <<: *default
+  database: rizakuru_test
+
+production:
+  <<: *default
+  database: rizakuru_production
+  username: rizakuru
+  password: <%= ENV["RIZAGURU_DATABASE_PASSWORD"] %>

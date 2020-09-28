@@ -1,0 +1,16 @@
+# database
+DATABASE_HOSTNAME: "localhost"
+DATABASE_USERNAME: "root"
+DATABASE_PASSWORD: "123456"
+
+# mailer
+HOST: "localhost:3000"
+SMTP_ADDRESS: "smtp.gmail.com"
+SMTP_PORT: "587"
+SMTP_DOMAIN: "gmail.com"
+SMTP_AUTHENTICATION: "plain"
+EMAIL_USERNAME: "email"
+EMAIL_PASSWORD: "password"
+
+# secret
+SECRET_KEY_BASE: "e237ecaf9d21e7d8843c0eccea71398ed463963a56ed0e324abd8a43baaebe0710f5ac3d97e56f3"

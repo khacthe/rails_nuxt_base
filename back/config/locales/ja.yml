@@ -1,0 +1,11 @@
+﻿ja:
+  swagger_project:
+    title: "作業チェック"
+    description: "従業員の作業とスケジュールのプロジェクト管理"
+  message_mails:
+    register_user:
+      subject: "アカウント確認"
+      title: "アカウント確認"
+    reset_password:
+      subject: "パスワードを再設定する"
+      title: "パスワードを再設定する"
