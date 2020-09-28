@@ -1,0 +1,38 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: back
+    build: back/
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails s -p 3000 -b 0.0.0.0"
+    volumes:
+      - ./back:/app/webapp
+    environment:
+      DATABASE_HOSTNAME: "db"
+      DATABASE_USERNAME: "root"
+      DATABASE_PASSWORD: ""
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+  front:
+    container_name: front
+    build: front/
+    command: bash -c "yarn && yarn run dev"
+    volumes:
+      - ./front:/app/webapp
+    ports:
+      - 8080:8080
+  db:
+    container_name: db
+    restart:
+      always
+    image: mysql:5.7.22
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data:
